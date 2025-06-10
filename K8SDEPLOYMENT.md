@@ -11,6 +11,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: api-secrets
+  namespace: challenge-cluster
 type: Opaque
 data:
   # PostgreSQL
@@ -38,6 +39,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: consumer-secrets
+  namespace: challenge-cluster
 type: Opaque
 data:
   # PostgreSQL
