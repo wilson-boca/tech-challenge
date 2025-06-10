@@ -19,6 +19,7 @@ The image below illustrates the architecture.
 ### Check how to run the app using **Docker** here [Containerization](CONTAINERIZATION.md)
 ### Check the **Kubernetes Deployment** here [Kubernetes Deployment](K8SDEPLOYMENT.md)
 ### Check the **CI/CD Deployment** details here [CI/CD - GitHub Actions](CICDGHA.md)
+### Check the **Testing Strategy** details here [Testing Strategy](TESTING.md)
 
 ## Setup and Installation
 
@@ -57,8 +58,10 @@ Once the service is running, access the OPEN API documentation at:
 2. Write unit tests, 60% coverage.
 3. Use type hints
 
-## Reduce costs
+## About the costs
 To reduce costs we could use a python Celery with Redis and save RabbitMQ costs.
+The host this solution on AWS that costs are under $800 month.
+What is very expnesive in my opinion.
 
 ## Future optimizations and enhancements
 
