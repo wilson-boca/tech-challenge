@@ -1,0 +1,72 @@
+name: Python CI Workflow
+
+on:
+  workflow_call:
+    inputs:
+      project:
+        required: true
+        type: string
+        description: "The relative path where the service is located"
+jobs:
+  python-ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: 'pip'
+          cache-dependency-path: ${{ inputs.project }}/requirements.txt
+
+      - name: Load cached venv
+        id: cached-pip-dependencies
+        uses: actions/cache@v4
+        with:
+          path: ${{ inputs.project }}/.venv
+          key: cache-${{ inputs.project }}-venv-${{ runner.os }}-${{ hashFiles('**/requirements.txt') }}
+          enableCrossOsArchive: true
+
+      - name: Create and activate virtual environment
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+        working-directory: ${{ inputs.project }}
+
+      - name: Install dependencies
+        if: steps.cached-pip-dependencies.outputs.cache-hit != 'true'
+        run: |
+          source .venv/bin/activate
+          pip install -r requirements.txt
+        working-directory: ${{ inputs.project }}
+
+      - name: Lint with black
+        run: |
+          source .venv/bin/activate
+          black --check -v --diff .
+        working-directory: ${{ inputs.project }}
+
+      - name: Check if Ruff is installed
+        run: |
+          source .venv/bin/activate
+          pip show ruff
+        id: check-ruff
+        working-directory: ${{ inputs.project }}
+        continue-on-error: true
+
+      - name: Run Ruff
+        if: steps.check-ruff.outcome == 'success'
+        run: |
+          source .venv/bin/activate
+          ruff check . -q
+        working-directory: ${{ inputs.project }}
+
+      - name: Test with pytest
+        run: |
+          source .venv/bin/activate
+          pytest -s -q -vv
+        working-directory: ${{ inputs.project }}

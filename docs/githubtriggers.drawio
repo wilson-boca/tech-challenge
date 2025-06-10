@@ -1,0 +1,52 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.4">
+  <diagram name="Page-1" id="-8-txC0xkZqaeK0k7wmV">
+    <mxGraphModel dx="1134" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NSgy9vwApB8L42k6i1ad-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-1" target="NSgy9vwApB8L42k6i1ad-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-1" value="" style="shape=image;html=1;verticalAlign=top;verticalLabelPosition=bottom;labelBackgroundColor=#ffffff;imageAspect=0;aspect=fixed;image=https://cdn4.iconfinder.com/data/icons/miu-black-social-2/60/github-128.png" vertex="1" parent="1">
+          <mxGeometry x="80" y="27.5" width="128" height="128" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-2" target="NSgy9vwApB8L42k6i1ad-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-2" value="A Pull Request is created" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="61.5" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-8" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-4" target="NSgy9vwApB8L42k6i1ad-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-10" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-4" target="NSgy9vwApB8L42k6i1ad-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-4" value="Is there any change&lt;div&gt;&amp;nbsp;in monitores folders&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;?&lt;/span&gt;&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="430" y="25.25" width="150" height="132.5" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-14" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-7" target="NSgy9vwApB8L42k6i1ad-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-7" target="NSgy9vwApB8L42k6i1ad-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-7" target="NSgy9vwApB8L42k6i1ad-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-7" value="IS the PR status&amp;nbsp;&lt;div&gt;closed?&lt;/div&gt;" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="427.5" y="200" width="155" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-9" value="End" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="620" y="51.5" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-12" value="Start CI" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="280" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-15" value="Start CD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="200" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

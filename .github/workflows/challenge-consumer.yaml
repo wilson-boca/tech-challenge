@@ -1,0 +1,32 @@
+name: "Consumer - CI/CD Workflow"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - consumer/**
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+      
+jobs:
+  workers-ci:
+    uses: ./.github/workflows/service-ci.yaml
+    with:
+      project: consumer
+
+  workers:
+    if: github.event.action == 'closed'
+    needs: workers-ci
+    uses: ./.github/workflows/service-cd.yaml
+    with:
+      project: consumer
+      service-name: challenge-consumer
+      dockerfile: consumer/Dockerfile
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOPMENT }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOPMENT }}
+      AWS_CLUSTER: ${{ secrets.AWS_CLUSTER_DEVELOPMENT }}
+      AWS_NAMESPACE: ${{ secrets.AWS_NAMESPACE_DEVELOPMENT }}

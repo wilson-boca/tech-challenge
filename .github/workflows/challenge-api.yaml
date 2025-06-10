@@ -1,0 +1,32 @@
+name: "Challenge API - CI/CD Workflow"
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - app/**
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+      
+jobs:
+  backend-ci:
+    uses: ./.github/workflows/service-ci.yaml
+    with:
+      project: app
+
+  backend-cd:
+    if: github.event.action == 'closed'
+    needs: backend-ci
+    uses: ./.github/workflows/service-cd.yaml
+    with:
+      project: app
+      service-name: challenge-api
+      dockerfile: app/Dockerfile
+    secrets:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID_DEVELOPMENT }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY_DEVELOPMENT }}
+      AWS_CLUSTER: ${{ secrets.AWS_CLUSTER_DEVELOPMENT }}
+      AWS_NAMESPACE: ${{ secrets.AWS_NAMESPACE_DEVELOPMENT }}

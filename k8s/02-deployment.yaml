@@ -1,0 +1,80 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  namespace: challenge-cluster
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        service: api
+      name: api
+    spec:
+      revisionHistoryLimit: 2
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox
+        command: ['sh', '-c', 'until nc -vz postgres 5432; do echo waiting for postgres; sleep 2; done;']
+      - name: wait-for-rabbitmq
+        image: busybox
+        command: ['sh', '-c', 'until nc -vz rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']        
+      containers:
+      - name: api
+        image: container-registry-address/api:latest
+        imagePullPolicy: Always
+        envFrom:
+          - secretRef:
+              name: api-secrets
+        ports:
+        - containerPort: 5590
+        resources:
+          requests:
+            cpu: 300m
+            memory: 128Mi
+          limits:
+            cpu: 500m
+            memory: 256Mi
+  selector:
+    matchLabels:
+      service: api
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consumer
+  namespace: challenge-cluster
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      service: consumer
+  template:
+    metadata:
+      labels:
+        service: consumer
+      name: consumer
+    spec:
+      initContainers:
+      - name: wait-for-postgres
+        image: busybox
+        command: ['sh', '-c', 'until nc -vz postgres 5432; do echo waiting for postgres; sleep 2; done;']
+      - name: wait-for-rabbitmq
+        image: busybox
+        command: ['sh', '-c', 'until nc -vz rabbitmq 5672; do echo waiting for rabbitmq; sleep 2; done;']
+      containers:
+      - name: consumer
+        image: contaier-registry-adddress/consumer:latest
+        imagePullPolicy: Always
+        envFrom:
+          - secretRef:
+              name: consumer-secrets
+        ports:
+        - containerPort: 5672
+        resources:
+          requests:
+            cpu: 150m
+            memory: 128Mi
+          limits:
+            cpu: 300m
+            memory: 256Mi      

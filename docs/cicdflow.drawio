@@ -1,0 +1,94 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36" version="27.1.4">
+  <diagram name="Page-1" id="-8-txC0xkZqaeK0k7wmV">
+    <mxGraphModel dx="1134" dy="766" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="NSgy9vwApB8L42k6i1ad-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-19" target="NSgy9vwApB8L42k6i1ad-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-19" value="Download the code&lt;div&gt;Checkout&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-20" target="NSgy9vwApB8L42k6i1ad-21">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-20" value="Check lint and PEP8" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="400" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-21" value="Run unit tests and&lt;div&gt;checks coverage&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-24" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-22" target="NSgy9vwApB8L42k6i1ad-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-22" value="Install test dependencies" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="120" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-28" value="CI - Flow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="240" y="60" width="355" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-30" target="NSgy9vwApB8L42k6i1ad-35">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-30" value="Download the code&lt;div&gt;Checkout&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-32" target="NSgy9vwApB8L42k6i1ad-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-32" value="Login to ECR" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-33" target="NSgy9vwApB8L42k6i1ad-38">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-33" value="Set the image full name" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-35" target="NSgy9vwApB8L42k6i1ad-32">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-35" value="Connect to AWS&lt;div&gt;using GTA secrets&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="300" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-36" value="CD - Flow" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=60;" vertex="1" parent="1">
+          <mxGeometry x="250" y="240" width="355" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-38" target="NSgy9vwApB8L42k6i1ad-43">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-38" value="Build and TAG image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-39" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-40" target="NSgy9vwApB8L42k6i1ad-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-40" value="Install kubectl command" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="410" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-41" target="NSgy9vwApB8L42k6i1ad-46">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-41" value="Update kube config" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-43" target="NSgy9vwApB8L42k6i1ad-40">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-43" value="Push image to ECR" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="NSgy9vwApB8L42k6i1ad-46" target="NSgy9vwApB8L42k6i1ad-47">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-46" value="Apply deployment manifest" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="NSgy9vwApB8L42k6i1ad-47" value="Restart rollout to force update image" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

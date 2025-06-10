@@ -1,0 +1,4 @@
+
+[tool.pytest.ini_options]
+addopts = "--cov=. --cov-report term-missing:skip-covered --cov-report xml:coverage.xml --cov-fail-under 60 --cov-config .coveragerc -p no:warnings"
+python_files = "*tests.py *test_*.py *_tests.py"

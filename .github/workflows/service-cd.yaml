@@ -1,0 +1,126 @@
+name: Python CD Workflow
+
+on:
+  workflow_call:
+    inputs:
+      project:
+        required: true
+        type: string
+        description: "The project to run the workflow on"
+      service-name:
+        required: true
+        type: string
+      aws-region:
+        required: false
+        type: string
+        default: us-east-1
+      dockerfile:
+        required: true
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        description: "Access key id with permissions for ecr and eks"
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        description: "Secret key with admin permissions for ecr and eks"
+        required: true
+      AWS_CLUSTER:
+        description: "Secret key with the cluster name for eks"
+        required: true
+      AWS_NAMESPACE:
+        description: "Secret key with the namespace for eks"
+        required: true
+jobs:
+  prepare-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      image_uri: ${{ steps.image.outputs.IMAGE_URI }}
+      image_exists: ${{ steps.check-image.outputs.IMAGE_EXISTS }}
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws-region }}
+      
+      - name: Login to Amazon ECR
+        id: login-ecr
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: true
+      
+      - name: Set IMAGE_URI
+        id: image
+        env:
+          ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+          SERVICE_NAME: ${{ inputs.service-name }}
+        run: echo "IMAGE_URI=$ECR_REGISTRY/k2/$SERVICE_NAME" >> $GITHUB_OUTPUT
+
+  build-and-push:
+    runs-on: ubuntu-latest
+    needs: prepare-build
+    timeout-minutes: 5
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.aws-region }}
+          
+      - name: Login to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+        with:
+          mask-password: true
+          
+      - name: Build and push image
+        env:
+          IMAGE_URI: ${{ needs.prepare-build.outputs.image_uri }}
+          DOCKERFILE: ${{ inputs.dockerfile }}
+          GITHUB_SHA: ${{ github.sha }}
+        run: |
+          echo "Building image $IMAGE_URI"
+          docker build -t $IMAGE_URI:latest -t $IMAGE_URI:$GITHUB_SHA --target production --file $DOCKERFILE ${{ inputs.project }}
+          echo "Pushing image to ECR..."
+          docker push --all-tags $IMAGE_URI
+          echo "Image pushed successfully!"
+
+  apply-deployment:
+    runs-on: ubuntu-latest
+    needs: build-and-push
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - uses: azure/setup-kubectl@v4
+        with:
+          version: 'v1.25.0'
+        id: install      
+
+      - name: Get current branch name
+        id: get-branch
+        run: echo "::set-output name=branch_name::$(git rev-parse --abbrev-ref HEAD)"          
+      
+      - name: Configure kubectl
+        run: |
+          aws eks update-kubeconfig --name ${{ secrets.AWS_CLUSTER }} --region $AWS_REGION
+
+      - name: Apply deployment to K8S
+        run: |
+          kubectl apply -f k8s/02-api-deployment.yaml -n ${{ secrets.AWS_NAMESPACE }}
+          kubectl rollout restart deployment ${{ inputs.service-name }} -n ${{ secrets.AWS_NAMESPACE }}
